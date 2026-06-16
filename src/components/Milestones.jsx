@@ -41,12 +41,12 @@ const Milestones = () => {
 
             return (
               <ScrollReveal key={milestone.id} delay={i * 0.1}>
-                <div className="glass-card gradient-border p-8 h-full flex flex-col">
+                <div className="group glass-card gradient-border p-8 h-full flex flex-col cursor-default">
                   {/* Icon & Category */}
                   <div className="flex items-center gap-3 mb-6">
-                    <div className={`p-2 rounded-lg ${accent.bg} border ${accent.border}`}>
+                    <div className={`p-2 rounded-lg ${accent.bg} border ${accent.border} transition-colors duration-300 group-hover:bg-opacity-20`}>
                       {IconComponent && (
-                        <IconComponent size={18} className={accent.metric} />
+                        <IconComponent size={18} className={`${accent.metric} transition-transform duration-300 group-hover:scale-110`} />
                       )}
                     </div>
                     <span className="font-mono text-xs tracking-wider text-text-muted uppercase">
@@ -57,11 +57,11 @@ const Milestones = () => {
                   {/* Metric */}
                   {milestone.metric && (
                     <div className="mb-4">
-                      <span className={`font-mono text-4xl font-bold ${accent.metric}`}>
+                      <span className={`font-mono text-4xl font-bold ${accent.metric} transition-all duration-300 group-hover:drop-shadow-[0_0_15px_currentColor]`}>
                         {milestone.metric}
                       </span>
                       {milestone.metricLabel && (
-                        <span className="block font-mono text-xs text-text-muted mt-1 tracking-wider uppercase">
+                        <span className="block font-mono text-xs text-text-muted mt-1 tracking-wider uppercase transition-colors duration-300 group-hover:text-text-secondary">
                           {milestone.metricLabel}
                         </span>
                       )}
