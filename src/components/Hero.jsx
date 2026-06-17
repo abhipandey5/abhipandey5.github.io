@@ -82,9 +82,9 @@ const Hero = () => {
     setSubmitStatus(null);
 
     // IMPORTANT: Replace these with your actual EmailJS credentials
-    const serviceID = 'YOUR_SERVICE_ID';
-    const templateID = 'YOUR_TEMPLATE_ID';
-    const publicKey = 'YOUR_PUBLIC_KEY';
+    const serviceID = 'service_74o81x1';
+    const templateID = 'template_27u1v0o';
+    const publicKey = 'yVSScP3UIh4EX4ibz';
 
     if (serviceID === 'YOUR_SERVICE_ID') {
       alert('Please configure your EmailJS credentials in Hero.jsx');
