@@ -24,7 +24,7 @@ const Projects = () => {
           <div className="mt-12 flex items-center justify-center gap-4">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
             <span className="font-mono text-xs text-text-muted px-3 py-1 rounded-full border border-border bg-bg-card/30">
-              Select Open Source Contributions
+              Star the repos if you like them, and feel free to contribute or provide feedback!
             </span>
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
           </div>
