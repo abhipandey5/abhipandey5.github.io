@@ -73,12 +73,7 @@ const Navbar = () => {
             className="group flex items-center gap-2 cursor-pointer"
             id="nav-logo"
           >
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-lavender to-pink flex items-center justify-center">
-              <span className="font-mono text-sm font-bold text-bg-primary">P</span>
-            </div>
-            <span className="font-mono text-sm font-semibold text-text-primary group-hover:text-lavender transition-colors hidden sm:block">
-              PNT
-            </span>
+            <img src="/favicon.png" alt="Logo" className="h-8 w-8 object-contain rounded-lg shadow-sm" />
           </button>
 
           {/* Desktop Nav */}
