@@ -194,6 +194,8 @@ export const milestones = [
 
 export const navItems = [
   { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Work Experience' },
+  { id: 'research', label: 'Research & Publications' },
   { id: 'projects', label: 'Projects' },
   { id: 'milestones', label: 'Milestones' },
   { id: 'contact', label: 'Contact' },

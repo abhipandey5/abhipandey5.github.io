@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowDown, FileText, Send, Download, X } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 import { socialLinks } from '../data/content';
 
 // Custom SVG icons for all social platforms
@@ -65,47 +64,8 @@ const itemVariants = {
 
 const Hero = () => {
   const [activeMenu, setActiveMenu] = useState(null); // 'resume', 'contact', or null
-  const formRef = useRef();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
   const handleMenuToggle = (menu) => {
     setActiveMenu(activeMenu === menu ? null : menu);
-    if (menu !== 'contact') {
-      setSubmitStatus(null);
-    }
-  };
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    // IMPORTANT: Replace these with your actual EmailJS credentials
-    const serviceID = 'service_74o81x1';
-    const templateID = 'template_27u1v0o';
-    const publicKey = 'yVSScP3UIh4EX4ibz';
-
-    if (serviceID === 'YOUR_SERVICE_ID') {
-      alert('Please configure your EmailJS credentials in Hero.jsx');
-      setIsSubmitting(false);
-      return;
-    }
-
-    emailjs.sendForm(serviceID, templateID, formRef.current, publicKey)
-      .then((result) => {
-          setSubmitStatus('success');
-          setIsSubmitting(false);
-          setTimeout(() => {
-            setActiveMenu(null);
-            setSubmitStatus(null);
-            e.target.reset();
-          }, 2000);
-      }, (error) => {
-          console.error(error.text);
-          setSubmitStatus('error');
-          setIsSubmitting(false);
-      });
   };
 
   return (
@@ -196,7 +156,10 @@ const Hero = () => {
               Download Resume
             </button>
             <button
-              onClick={() => handleMenuToggle('contact')}
+              onClick={() => {
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="flex items-center gap-2 px-6 py-3 rounded-xl border border-transparent bg-text-primary text-bg-primary hover:bg-lavender transition-all font-medium text-sm sm:text-base cursor-pointer"
             >
               <Send size={18} />
@@ -249,54 +212,6 @@ const Hero = () => {
                     </div>
                   </a>
                 </div>
-              </motion.div>
-            )}
-
-            {activeMenu === 'contact' && (
-              <motion.div
-                initial={{ opacity: 0, y: -10, height: 0 }}
-                animate={{ opacity: 1, y: 0, height: 'auto' }}
-                exit={{ opacity: 0, y: -10, height: 0 }}
-                className="w-full max-w-sm overflow-hidden"
-              >
-                <form
-                  ref={formRef}
-                  className="mt-4 p-5 rounded-xl border border-border bg-bg-card/80 backdrop-blur-md flex flex-col gap-4 text-left"
-                  onSubmit={sendEmail}
-                >
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-sm font-semibold text-text-primary">Send me a message</span>
-                    <button type="button" onClick={() => setActiveMenu(null)} className="text-text-muted hover:text-pink transition-colors cursor-pointer">
-                      <X size={16} />
-                    </button>
-                  </div>
-                  <div>
-                    <label htmlFor="user_name" className="block text-xs font-medium text-text-secondary mb-1">Name</label>
-                    <input type="text" name="user_name" id="user_name" required className="w-full px-3 py-2 rounded-lg border border-border bg-bg-primary text-sm text-text-primary focus:outline-none focus:border-lavender focus:ring-1 focus:ring-lavender transition-all" placeholder="John Doe" />
-                  </div>
-                  <div>
-                    <label htmlFor="user_email" className="block text-xs font-medium text-text-secondary mb-1">Email</label>
-                    <input type="email" name="user_email" id="user_email" required className="w-full px-3 py-2 rounded-lg border border-border bg-bg-primary text-sm text-text-primary focus:outline-none focus:border-lavender focus:ring-1 focus:ring-lavender transition-all" placeholder="john@example.com" />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-xs font-medium text-text-secondary mb-1">Message</label>
-                    <textarea name="message" id="message" required rows={3} className="w-full px-3 py-2 rounded-lg border border-border bg-bg-primary text-sm text-text-primary focus:outline-none focus:border-lavender focus:ring-1 focus:ring-lavender transition-all resize-none" placeholder="Hello..." />
-                  </div>
-                  {submitStatus === 'error' && (
-                    <p className="text-xs text-pink">Something went wrong. Please try again.</p>
-                  )}
-                  <button 
-                    type="submit" 
-                    disabled={isSubmitting || submitStatus === 'success'} 
-                    className={`w-full py-2.5 rounded-lg transition-colors text-sm font-medium cursor-pointer ${
-                      submitStatus === 'success' 
-                        ? 'bg-lavender text-white' 
-                        : 'bg-text-primary text-bg-primary hover:bg-lavender disabled:opacity-70 disabled:cursor-not-allowed'
-                    }`}
-                  >
-                    {isSubmitting ? 'Sending...' : submitStatus === 'success' ? 'Message Sent!' : 'Send Message'}
-                  </button>
-                </form>
               </motion.div>
             )}
           </AnimatePresence>

@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import Milestones from './components/Milestones';
 import Footer from './components/Footer';
 import ScrollIndicator from './components/ScrollIndicator';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Projects />
         <Milestones />
       </main>
+      <Contact />
       <Footer />
       <ScrollIndicator />
     </>

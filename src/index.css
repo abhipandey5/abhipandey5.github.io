@@ -28,8 +28,8 @@
 @layer base {
   :root {
     /* Light Theme (Lighter, warmer, more pink) */
-    --bg-primary: #fff0f5; /* Lavender blush / very light warm pink */
-    --bg-secondary: #ffe4e1; /* Misty rose */
+    --bg-primary: #ffd1dc; /* Soft pastel pink */
+    --bg-secondary: #ffb6c1; /* Classic light pink */
     --bg-card: rgba(255, 255, 255, 0.9);
     --bg-card-hover: rgba(255, 255, 255, 1);
     
