@@ -30,8 +30,8 @@
     /* Light Theme (Lighter, warmer, more pink) */
     --bg-primary: #ffd1dc; /* Soft pastel pink */
     --bg-secondary: #ffb6c1; /* Classic light pink */
-    --bg-card: rgba(255, 235, 240, 0.85); /* Slight pink accent instead of pure white */
-    --bg-card-hover: rgba(255, 240, 245, 0.95);
+    --bg-card: #ffe6ee; /* Distinct lighter shade of pink for widgets */
+    --bg-card-hover: #ffdced;
     
     --lavender: #9333ea;
     --lavender-dim: #7e22ce;
