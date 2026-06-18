@@ -71,10 +71,10 @@ const Contact = () => {
             <button 
               type="submit" 
               disabled={isSubmitting || submitStatus === 'success'} 
-              className={`w-full py-4 rounded-xl transition-all text-base font-semibold cursor-pointer ${
+              className={`w-full py-4 rounded-xl transition-all text-base font-semibold cursor-pointer border ${
                 submitStatus === 'success' 
-                  ? 'bg-lavender text-white shadow-lg shadow-lavender/30' 
-                  : 'bg-text-primary text-bg-primary hover:bg-lavender hover:shadow-lg hover:shadow-lavender/20 disabled:opacity-70 disabled:cursor-not-allowed'
+                  ? 'bg-lavender text-white shadow-lg shadow-lavender/30 border-lavender' 
+                  : 'border-lavender/30 bg-lavender/20 text-lavender hover:bg-lavender hover:text-white hover:border-lavender hover:shadow-lg hover:shadow-lavender/20 disabled:opacity-70 disabled:cursor-not-allowed'
               }`}
             >
               {isSubmitting ? 'Sending...' : submitStatus === 'success' ? 'Message Sent!' : 'Send Message'}

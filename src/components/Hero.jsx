@@ -160,7 +160,7 @@ const Hero = () => {
                 const el = document.getElementById('contact');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-transparent bg-text-primary text-bg-primary hover:bg-lavender transition-all font-medium text-sm sm:text-base cursor-pointer"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-lavender/30 bg-lavender/20 text-lavender hover:bg-lavender hover:text-white hover:border-lavender hover:shadow-lg hover:shadow-lavender/20 transition-all font-medium text-sm sm:text-base cursor-pointer"
             >
               <Send size={18} />
               Contact Me
