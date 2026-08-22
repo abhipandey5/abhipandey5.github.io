@@ -3,22 +3,26 @@ import { Link } from 'react-router-dom';
 import SectionHeading from './SectionHeading';
 import ScrollReveal from './ScrollReveal';
 import { ArrowRight, Pin } from 'lucide-react';
+import { initialBlogs } from '../data/blogPosts';
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const saved = localStorage.getItem('portfolio_blogs');
+    let parsed = [];
     if (saved) {
-      const parsed = JSON.parse(saved);
-      // Sort: pinned first, then by date descending
-      parsed.sort((a, b) => {
-        if (a.pinned && !b.pinned) return -1;
-        if (!a.pinned && b.pinned) return 1;
-        return parseInt(b.id) - parseInt(a.id);
-      });
-      setPosts(parsed);
+      parsed = JSON.parse(saved);
+    } else {
+      parsed = [...initialBlogs];
     }
+    // Sort: pinned first, then by date descending
+    parsed.sort((a, b) => {
+      if (a.pinned && !b.pinned) return -1;
+      if (!a.pinned && b.pinned) return 1;
+      return parseInt(b.id) - parseInt(a.id);
+    });
+    setPosts(parsed);
   }, []);
 
   return (
@@ -46,7 +50,11 @@ const Blog = () => {
                       {post.title}
                     </h3>
                     <p className="text-text-secondary text-sm flex-1 line-clamp-3">
-                      {post.content.replace(/[#*`_\[\]]/g, '').slice(0, 150)}...
+                      {(() => {
+                        if (post.content) return post.content.replace(/[#*`_\[\]]/g, '').slice(0, 150);
+                        const textBlock = post.blocks?.find(b => b.type === 'text');
+                        return textBlock ? textBlock.content.replace(/<[^>]+>/g, '').slice(0, 150) : '';
+                      })()}...
                     </p>
                     <div className="mt-6 flex items-center gap-2 text-lavender font-mono text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                       Read Article <ArrowRight size={16} />

@@ -1,12 +1,12 @@
 import ScrollReveal from './ScrollReveal';
 import SectionHeading from './SectionHeading';
+import { techStack } from '../data/content';
 
 const coreStack = [
-  { category: 'Languages', items: 'C, C++ (C++17/20), CUDA C++, Python, Go, SQL' },
-  { category: 'AI & Machine Learning', items: 'PyTorch, JAX, scikit-learn, XGBoost, LightGBM, Hugging Face, OpenCV, ONNX, Quantization (1.58-bit / GGUF)' },
-  { category: 'Data, MLOps & Infrastructure', items: 'Kafka, Apache Spark, Airflow, Weights & Biases (wandb), MLFlow, Optuna, AWS SageMaker, Docker, Kubernetes (K8s), Git, Linux, CMake' },
-  { category: 'Backend & Systems', items: 'gRPC, Redis, PostgreSQL, Node.js, Hardware Intrinsics (SIMD/AVX2), Microservices, Memory Management, Distributed Data Parallel' },
-  { category: 'Concepts', items: 'Artificial Intelligence, High-Performance Computing (HPC), GPU Architecture, System Design, Data Engineering' }
+  { category: 'Security & Privacy', items: 'Secure Authentication, Cryptography, Data Security, Identity Attestation' },
+  { category: 'AI & Machine Learning', items: 'AI/ML Security, Reinforcement Learning, Federated Learning, Quantum-Safe ML' },
+  { category: 'Systems & Infrastructure', items: 'Cyber Physical Systems, IoT, Digital Twins, Blockchain Integration, DLT' },
+  { category: 'Domains', items: 'Health Informatics, Medical Cyber-Physical Systems, Banking Applications' }
 ];
 
 const About = () => {
@@ -15,8 +15,8 @@ const About = () => {
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           label="// Philosophy"
-          title="Decoding Intelligence"
-          subtitle="Bridging foundational research with high-performance computing to push the limits of edge inference."
+          title="Securing the Future of AI"
+          subtitle="Bridging cybersecurity and machine learning to build resilient and safe cyber-physical systems."
         />
 
         <div className="flex flex-col gap-8">
@@ -33,13 +33,13 @@ const About = () => {
                 </div>
                 <div className="space-y-4 text-base text-text-secondary leading-relaxed flex-1">
                   <p>
-                    My core academic and professional pursuit is to advance Artificial Intelligence. However, I have come to realize that the future of AI is no longer bottlenecked solely by theoretical mathematics; it is bottlenecked by hardware and compute as well. Most university AI curricula stop at the API layer. My engineering focus is on the metal beneath it.
+                    I am a Ph.D. Scholar at the Center for Security, Theory and Algorithmic Research (C-STAR) at IIIT Hyderabad. My research is primarily driven by the need to secure critical infrastructure in an increasingly connected world.
                   </p>
                   <p>
-                    I am an AI and Systems Researcher dedicated to decoding and understanding the advancements in the AI architectures, their mathematical modelling, GPUs and AI Accelerators. I enjoy learning by stripping away abstractions.—whether that means engineering manual autograd graphs to internalize linear algebra bottlenecks, or writing AVX2 SIMD intrinsics from scratch to push edge inference constraints.
+                    My academic journey has been dedicated to understanding and classifying various aspects of Cyber Security and Information Security. Specifically, my thesis focuses on the Design and Analysis of Secure Machine Learning-Driven Authentication Mechanisms for Medical Cyber-Physical Systems.
                   </p>
                   <p>
-                    My objective is to bridge the gap between frontier algorithmic research and the high-performance distributed infrastructure required to scale it.
+                    By combining foundational security principles with advanced AI paradigms, I aim to develop resilient systems that safeguard sensitive data across healthcare, industrial IoT, and financial sectors.
                   </p>
                 </div>
               </div>
@@ -56,7 +56,15 @@ const About = () => {
                 </div>
                 <div className="space-y-4 text-base text-text-secondary leading-relaxed flex-1">
                   <p>
-                    Currently, my research spans various frontiers of AI: LLMs, SLMs, VLMs, SSMs, World Models, Audio AI, Mechanistic Interpretability, Inference Optimizations, and much more.
+                    My current research spans multiple domains at the intersection of security and modern technologies. Key focus areas include:
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 text-text-secondary pl-2">
+                    {techStack.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                  <p className="mt-4">
+                    Whether it's quantum-safe digital twins, reinforcement learning-as-a-service, or blockchain-enabled frameworks, I strive to push the boundaries of secure integration.
                   </p>
                 </div>
               </div>
@@ -69,11 +77,11 @@ const About = () => {
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-2 w-2 rounded-full bg-mauve" />
                 <span className="font-mono text-sm tracking-widest uppercase text-mauve font-semibold">
-                  Core Stack
+                  Core Expertise
                 </span>
               </div>
               
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
                 {coreStack.map((stack, i) => (
                   <div key={i} className="flex flex-col gap-2 p-5 rounded-xl border border-border bg-bg-primary/50 hover:border-lavender/50 transition-colors">
                     <span className="font-mono text-sm font-bold text-text-primary tracking-wider uppercase">

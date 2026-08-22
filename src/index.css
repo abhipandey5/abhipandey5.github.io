@@ -21,8 +21,8 @@
   --color-border: var(--border);
   --color-border-hover: var(--border-hover);
 
-  --font-sans: 'Pixelify Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'VT323', monospace;
+  --font-sans: 'Space Mono', monospace;
+  --font-mono: 'Fira Code', monospace;
 }
 
 @layer base {

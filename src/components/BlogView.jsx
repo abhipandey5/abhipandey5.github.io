@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import katex from "katex";
 import "katex/dist/katex.min.css";
 import { ArrowLeft, Menu, X } from 'lucide-react';
+import { initialBlogs } from '../data/blogPosts';
 
 window.katex = katex;
 
@@ -15,16 +16,19 @@ export default function BlogView() {
   useEffect(() => {
     window.scrollTo(0, 0);
     const saved = localStorage.getItem('portfolio_blogs');
+    let posts = [];
     if (saved) {
-      const posts = JSON.parse(saved);
-      const found = posts.find(p => p.id === id);
-      if (found) {
-        // Legacy support
-        if (found.content && typeof found.content === 'string' && !found.blocks) {
-          found.blocks = [{ id: 'legacy', type: 'text', content: found.content }];
-        }
-        setPost(found);
+      posts = JSON.parse(saved);
+    } else {
+      posts = [...initialBlogs];
+    }
+    const found = posts.find(p => p.id === id);
+    if (found) {
+      // Legacy support
+      if (found.content && typeof found.content === 'string' && !found.blocks) {
+        found.blocks = [{ id: 'legacy', type: 'text', content: found.content }];
       }
+      setPost(found);
     }
   }, [id]);
 

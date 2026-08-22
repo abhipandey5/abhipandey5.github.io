@@ -1,45 +1,30 @@
-import { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowDown, FileText, Send, Download, X } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Send } from 'lucide-react';
 import { socialLinks } from '../data/content';
 
-// Custom SVG icons for all social platforms
-const LinkedInIcon = ({ size = 20 }) => (
+// Custom SVG icons for research platforms
+const GoogleScholarIcon = ({ size = 28 }) => (
   <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5 12 0z"/>
   </svg>
 );
 
-const GitHubIcon = ({ size = 20 }) => (
+const OrcidIcon = ({ size = 28 }) => (
   <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+    <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.434h2.297c3.272 0 3.9-2.853 3.9-3.722 0-2.216-1.284-3.712-3.584-3.712h-2.613z"/>
   </svg>
 );
 
-const XIcon = ({ size = 20 }) => (
+const ResearchGateIcon = ({ size = 28 }) => (
   <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
-  </svg>
-);
-
-const KaggleIcon = ({ size = 20 }) => (
-  <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-    <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.281.18.046.095.034.18-.035.248l-6.555 6.344 6.836 8.507c.095.118.117.21.074.352z" />
-  </svg>
-);
-
-const HuggingFaceIcon = ({ size = 28 }) => (
-  <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-3-9c.83 0 1.5-.67 1.5-1.5S9.83 8 9 8s-1.5.67-1.5 1.5S8.17 11 9 11zm6 0c.83 0 1.5-.67 1.5-1.5S15.83 8 15 8s-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm-3 5.5c-2.33 0-4.32-1.45-5.12-3.5h10.24c-.8 2.05-2.79 3.5-5.12 3.5zM3 13c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm18 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+    <path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a12.603 12.603 0 0 0-.35 1.907c-.096.98-.144 2.49-.144 4.53 0 2.04.048 3.55.144 4.53.048.49.148.96.3 1.407.16.45.385.86.676 1.234.292.374.617.642.975.803.36.162.744.243 1.152.243.425 0 .835-.09 1.23-.27.397-.18.731-.445 1.003-.795.27-.35.476-.74.616-1.17.14-.43.21-.888.21-1.374 0-.244-.015-.46-.043-.65H16.46V9.86h4.93c.027.203.04.413.04.63 0 1.356-.205 2.52-.618 3.492-.413.974-1.018 1.715-1.815 2.225-.8.51-1.73.765-2.793.765-1.188 0-2.2-.28-3.033-.842-.836-.562-1.47-1.358-1.906-2.387-.434-1.03-.65-2.24-.65-3.63 0-1.39.216-2.597.65-3.628.436-1.03 1.07-1.825 1.906-2.388C14.007.279 15.02 0 16.208 0c.97 0 1.807.2 2.51.598.703.4 1.264.975 1.683 1.725l-1.55.893c-.263-.508-.622-.896-1.076-1.166-.453-.27-.958-.404-1.513-.404-.808 0-1.507.212-2.094.636-.587.425-1.035 1.032-1.344 1.82-.31.79-.465 1.72-.465 2.793 0 1.073.155 2.003.465 2.79.31.788.757 1.393 1.344 1.816.587.422 1.286.634 2.094.634.69 0 1.28-.155 1.77-.464.49-.31.872-.77 1.148-1.38.275-.61.435-1.356.48-2.24h-3.245V7.87h5.015v.163c0 1.7-.24 3.132-.72 4.294-.48 1.163-1.172 2.038-2.076 2.628-.904.59-1.982.884-3.234.884-1.317 0-2.468-.31-3.45-.93-.984-.62-1.74-1.507-2.27-2.66-.527-1.153-.79-2.498-.79-4.033 0-1.536.263-2.88.79-4.034.53-1.153 1.286-2.04 2.27-2.66C13.74.31 14.892 0 16.208 0h.002z"/>
   </svg>
 );
 
 const customIcons = {
-  linkedin: LinkedInIcon,
-  github: GitHubIcon,
-  'x-twitter': XIcon,
-  kaggle: KaggleIcon,
-  huggingface: HuggingFaceIcon,
+  scholar: GoogleScholarIcon,
+  orcid: OrcidIcon,
+  researchgate: ResearchGateIcon,
 };
 
 const containerVariants = {
@@ -63,7 +48,6 @@ const itemVariants = {
 };
 
 const Hero = () => {
-
   return (
     <section
       id="hero"
@@ -79,7 +63,7 @@ const Hero = () => {
         <motion.div variants={itemVariants} className="mb-6">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-lavender/20 bg-lavender/5 font-mono text-sm font-semibold tracking-widest uppercase text-lavender">
             <span className="h-1.5 w-1.5 rounded-full bg-lavender animate-pulse" />
-            AI & HPC Research
+            Cybersecurity & ML Research
           </span>
         </motion.div>
 
@@ -87,8 +71,8 @@ const Hero = () => {
         <motion.div variants={itemVariants} className="mb-8">
           <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto">
             <img 
-              src={`${import.meta.env.BASE_URL}my-picture.png`} 
-              alt="Pundarikaksh Narayan Tripathi" 
+              src={`${import.meta.env.BASE_URL}abhishek.png`} 
+              alt="Abhishek Kumar Pandey" 
               className="w-full h-full object-cover object-top rounded-full border-4 border-border shadow-[4px_4px_0px_var(--color-border)]"
             />
           </div>
@@ -99,8 +83,8 @@ const Hero = () => {
           variants={itemVariants}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
         >
-          <span className="block text-text-primary">Pundarikaksh</span>
-          <span className="block gradient-text mt-1">Narayan Tripathi</span>
+          <span className="block text-text-primary">Abhishek</span>
+          <span className="block gradient-text mt-1">Kumar Pandey</span>
         </motion.h1>
 
         {/* Tagline */}
@@ -108,9 +92,9 @@ const Hero = () => {
           variants={itemVariants}
           className="max-w-xl text-base sm:text-lg text-text-secondary leading-relaxed mb-10"
         >
-          Bridging foundational Artificial Intelligence research with{' '}
-          <span className="text-lavender font-medium">High-Performance Computing</span>{' '}
-          infrastructure.
+          Ph.D. Scholar at IIIT Hyderabad specializing in{' '}
+          <span className="text-lavender font-medium">Secure Authentication, AI/ML Security</span>{' '}
+          and Medical Cyber-Physical Systems.
         </motion.p>
 
         {/* Social Links & Action Buttons */}
@@ -128,10 +112,10 @@ const Hero = () => {
                   id={`social-${link.id}`}
                   aria-label={link.label}
                 >
-                  {link.Icon ? (
-                    <link.Icon size={28} />
-                  ) : CustomIcon ? (
+                  {CustomIcon ? (
                     <CustomIcon size={28} />
+                  ) : link.Icon ? (
+                    <link.Icon size={28} />
                   ) : null}
                   {/* Tooltip */}
                   <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded text-[10px] font-mono text-lavender bg-bg-secondary/90 border border-border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
@@ -144,15 +128,6 @@ const Hero = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
-            <a
-              href={`${import.meta.env.BASE_URL}resume/Pundarikaksh_NT_Resume.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-border bg-bg-card text-text-primary hover:text-lavender hover:border-lavender/50 hover:bg-lavender/10 transition-all font-medium text-sm sm:text-base cursor-pointer"
-            >
-              <Download size={18} />
-              Download Resume
-            </a>
             <button
               onClick={() => {
                 const el = document.getElementById('contact');
