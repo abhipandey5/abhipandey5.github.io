@@ -112,7 +112,7 @@ const Footer = () => {
           <p className="font-mono text-xs text-text-muted">
             Built with{' '}
             <span className="text-lavender">Curiosity</span>{' '}&{' '}
-            <span className="text-pink">and Purpose</span>
+            <span className="text-pink">Purpose</span>
           </p>
         </div>
       </div>
