@@ -13,9 +13,9 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    const serviceID = 'service_74o81x1';
-    const templateID = 'template_27u1v0o';
-    const publicKey = 'yVSScP3UIh4EX4ibz';
+    const serviceID = 'service_2aqvjqf';
+    const templateID = 'template_xm70egs';
+    const publicKey = 'k6nUqUeZEDq_ckjua';
 
     if (serviceID === 'YOUR_SERVICE_ID') {
       alert('Please configure your EmailJS credentials in Contact.jsx');
