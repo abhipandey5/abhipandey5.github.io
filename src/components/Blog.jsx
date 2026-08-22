@@ -31,7 +31,7 @@ const Blog = () => {
         <SectionHeading
           label="// Articles & Thoughts"
           title="Blog"
-          subtitle="Writing about my dual research interests: mathematical, architectural frontier AI and low-level AI infrastructure & HPC."
+          subtitle="Writing about my dual research interests: AI/ML Security & Post-Quantum Cryptography."
         />
         
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -73,7 +73,7 @@ const Blog = () => {
                   Stay Tuned
                 </h3>
                 <p className="text-base text-text-secondary max-w-md">
-                  I am currently working on documenting my dual-aligned research, exploring both mathematical and architectural frontier AI alongside low-level AI infrastructure. Articles will be published here soon.
+                  I am currently working on documenting my dual-aligned research, exploring both AI/ML Security & Post-Quantum Cryptography. Articles will be published here soon.
                 </p>
               </div>
             </ScrollReveal>
