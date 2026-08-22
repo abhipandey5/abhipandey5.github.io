@@ -33,7 +33,7 @@ const About = () => {
                 </div>
                 <div className="space-y-4 text-base text-text-secondary leading-relaxed flex-1">
                   <p>
-                    I am a Ph.D. Scholar at the Center for Security, Theory and Algorithmic Research (C-STAR) at IIIT Hyderabad. My research is primarily driven by the need to secure critical infrastructure in an increasingly connected world.
+                    I am a Ph.D. Scholar at the Center for Security, Theory and Algorithmic Research (C-STAR) at IIIT Hyderabad, under Prof. Ashok Kumar Das. My research is primarily driven by the need to secure critical infrastructure in an increasingly connected world.
                   </p>
                   <p>
                     My academic journey has been dedicated to understanding and classifying various aspects of Cyber Security and Information Security. Specifically, my thesis focuses on the Design and Analysis of Secure Machine Learning-Driven Authentication Mechanisms for Medical Cyber-Physical Systems.
