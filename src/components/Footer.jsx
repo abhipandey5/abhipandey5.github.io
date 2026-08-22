@@ -43,7 +43,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-sm text-text-secondary leading-relaxed">
-              Cyber Security & AI Researcher building secure machine learning-driven
+              Cyber Security & AI/ML Security Researcher building secure machine learning-driven
               authentication mechanisms for critical cyber-physical systems.
             </p>
           </div>
@@ -111,8 +111,8 @@ const Footer = () => {
           </p>
           <p className="font-mono text-xs text-text-muted">
             Built with{' '}
-            <span className="text-lavender">React</span>{' '}&{' '}
-            <span className="text-pink">Tailwind CSS</span>
+            <span className="text-lavender">Curiosity</span>{' '}&{' '}
+            <span className="text-pink">and Purpose</span>
           </p>
         </div>
       </div>
