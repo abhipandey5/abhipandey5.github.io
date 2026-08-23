@@ -7,6 +7,7 @@ import WorkExperience from './components/WorkExperience';
 import Research from './components/Research';
 import Projects from './components/Projects';
 import Milestones from './components/Milestones';
+import PhotoGallery from './components/PhotoGallery';
 import Footer from './components/Footer';
 import ScrollIndicator from './components/ScrollIndicator';
 import Contact from './components/Contact';
@@ -23,6 +24,7 @@ const PortfolioHome = () => (
       <WorkExperience />
       <Research />
       <Projects />
+      <PhotoGallery />
       <Milestones />
       <Blog />
     </main>

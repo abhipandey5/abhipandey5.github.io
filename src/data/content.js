@@ -108,6 +108,7 @@ export const navItems = [
   { id: 'experience', label: 'Work Experience' },
   { id: 'research', label: 'Research & Publications' },
   { id: 'projects', label: 'Selected Works' },
+  { id: 'gallery', label: 'Gallery' },
   { id: 'milestones', label: 'Milestones' },
   { id: 'blog', label: 'Blog' },
   { id: 'contact', label: 'Contact' },
