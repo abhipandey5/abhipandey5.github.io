@@ -6,19 +6,19 @@ const professorMoments = [
     src: '/Pictures/IMG-20250105-WA0000.jpg',
     alt: 'Photo with Prof. Sajal K Das',
     title: 'Prof. Sajal K Das',
-    detail: 'Moment with one of the most influential mentors in my academic journey.',
+    detail: 'Moment with two legendary profs. Prof. Ashok Kumar Das (Left), Prof. Sajal K Das (Middle).',
   },
   {
     src: '/Pictures/IMG-20250304-WA0027.jpg',
     alt: 'Photo with Prof. Elisa Bertino',
     title: 'Prof. Elisa Bertino',
-    detail: 'A memorable interaction with a leading scholar in cybersecurity and data science.',
+    detail: 'A memorable interaction with a leading academician in cybersecurity and data science.',
   },
   {
     src: '/Pictures/PXL_20250304_094841305.MP.jpg',
     alt: 'Photo with Prof. Elisa Bertino in Norway',
     title: 'Prof. Elisa Bertino',
-    detail: 'Academic exploration, international exposure, and a lasting research experience during my visit to Norway.',
+    detail: 'Academic exploration, international exposure, and a lasting research experience during her visit to IIIT-H.',
   },
   {
     src: '/Pictures/Picsart_25-11-19_22-34-58-819.jpg',
@@ -36,7 +36,7 @@ const professorMoments = [
     src: '/Pictures/WhatsApp Image 2026-08-24 at 1.10.21 AM.jpeg',
     alt: 'Portrait with professor',
     title: 'Academic Exchange',
-    detail: 'A meaningful discussion captured during a key academic milestone.',
+    detail: 'A meaningful discussion captured during a key academic exchange program.',
   },
   {
     src: '/Pictures/WhatsApp Image 2026-08-24 at 1.10.22 AM (2).jpeg',
