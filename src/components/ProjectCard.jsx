@@ -81,7 +81,7 @@ const ProjectCard = ({ project, index }) => {
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className={`inline-flex items-center px-2.5 py-1 rounded-full font-mono text-xs font-semibold border ${accent.tag} transition-colors`}
+            className={`inline-flex items-center px-2.5 py-1 rounded-full font-mono text-xs font-semibold border ${accent.tag} transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_18px_rgba(168,85,247,0.18)]`}
           >
             {tag}
           </span>

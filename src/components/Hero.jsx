@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 import { socialLinks } from '../data/content';
@@ -48,6 +49,28 @@ const itemVariants = {
 };
 
 const Hero = () => {
+  const [now, setNow] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const formattedClock = new Intl.DateTimeFormat('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  }).format(now);
+
+  const formattedDate = new Intl.DateTimeFormat('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  }).format(now);
+
   return (
     <section
       id="hero"
@@ -59,92 +82,97 @@ const Hero = () => {
         animate="visible"
         className="flex flex-col items-center text-center max-w-4xl"
       >
-        {/* Eyebrow */}
-        <motion.div variants={itemVariants} className="mb-6">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-lavender/20 bg-lavender/5 font-mono text-sm font-semibold tracking-widest uppercase text-lavender">
-            <span className="h-1.5 w-1.5 rounded-full bg-lavender animate-pulse" />
-            Cybersecurity & ML Security Research
-          </span>
-        </motion.div>
+        <div className="relative w-full max-w-5xl">
+          <div className="flex flex-col items-center text-center">
+            {/* Eyebrow */}
+            <motion.div variants={itemVariants} className="mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-lavender/20 bg-lavender/5 font-mono text-sm font-semibold tracking-widest uppercase text-lavender">
+                <span className="h-1.5 w-1.5 rounded-full bg-lavender animate-pulse" />
+                Cybersecurity & ML Security Research
+              </span>
+            </motion.div>
 
-        {/* Profile Picture */}
-        <motion.div variants={itemVariants} className="mb-8">
-          <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto">
-            <img 
-              src={`${import.meta.env.BASE_URL}abhishek.png`} 
-              alt="Abhishek Kumar Pandey" 
-              className="w-full h-full object-cover object-top rounded-full border-4 border-border shadow-[4px_4px_0px_var(--color-border)]"
-            />
-          </div>
-        </motion.div>
+            {/* Profile Picture */}
+            <motion.div variants={itemVariants} className="mb-8">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto">
+                <img 
+                  src={`${import.meta.env.BASE_URL}abhishek.png`} 
+                  alt="Abhishek Kumar Pandey" 
+                  className="w-full h-full object-cover object-top rounded-full border-4 border-border shadow-[4px_4px_0px_var(--color-border)]"
+                />
+              </div>
+            </motion.div>
 
-        {/* Name */}
-        <motion.h1
-          variants={itemVariants}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
-        >
-          <span className="block text-text-primary">Abhishek</span>
-          <span className="block gradient-text mt-1">Kumar Pandey</span>
-        </motion.h1>
-
-        {/* Tagline */}
-        <motion.p
-          variants={itemVariants}
-          className="max-w-xl text-base sm:text-lg text-text-secondary leading-relaxed mb-10"
-        >
-          Ph.D. Scholar at IIIT Hyderabad specializing in{' '}
-          <span className="text-lavender font-medium">Secure Authentication, AI/ML Security</span>{' '}
-          and Medical Cyber-Physical Systems. My Supervisor is Prof. Ashok Kumar Das
-        </motion.p>
-
-        {/* Social Links & Action Buttons */}
-        <motion.div variants={itemVariants} className="flex flex-col items-center gap-6">
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {socialLinks.map((link) => {
-              const CustomIcon = link.customSvg ? customIcons[link.id] : null;
-              return (
-                <a
-                  key={link.id}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative p-3 rounded-xl border border-border bg-bg-card/50 backdrop-blur-sm text-text-secondary hover:text-lavender hover:border-lavender/30 hover:bg-lavender/5 transition-all duration-300"
-                  id={`social-${link.id}`}
-                  aria-label={link.label}
-                >
-                  {CustomIcon ? (
-                    <CustomIcon size={28} />
-                  ) : link.Icon ? (
-                    <link.Icon size={28} />
-                  ) : null}
-                  {/* Tooltip */}
-                  <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded text-[10px] font-mono text-lavender bg-bg-secondary/90 border border-border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-                    {link.label}
-                  </span>
-                </a>
-              );
-            })}
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
-            <button
-              onClick={() => {
-                const el = document.getElementById('contact');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-border bg-bg-card text-text-primary hover:text-lavender hover:border-lavender/50 hover:bg-lavender/10 transition-all font-medium text-sm sm:text-base cursor-pointer"
+            {/* Name */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
             >
-              <Send size={18} />
-              Contact Me
-            </button>
+              <span className="block text-text-primary">Abhishek</span>
+              <span className="block gradient-text mt-1">Kumar Pandey</span>
+            </motion.h1>
+
+            {/* Tagline */}
+            <motion.p
+              variants={itemVariants}
+              className="max-w-xl text-base sm:text-lg text-text-secondary leading-relaxed"
+            >
+              Ph.D. Scholar at IIIT Hyderabad specializing in{' '}
+              <span className="text-lavender font-medium">Secure Authentication, AI/ML Security</span>{' '}
+              and Medical Cyber-Physical Systems. My Supervisor is Prof. Ashok Kumar Das
+            </motion.p>
+
+            <motion.blockquote
+              variants={itemVariants}
+              className="mt-6 max-w-2xl border-l-2 border-lavender/60 bg-bg-card/40 px-4 py-3 text-base italic text-text-secondary shadow-[0_0_0_1px_rgba(196,167,231,0.15)]"
+            >
+              “Security is not an afterthought; it is the foundation on which trustworthy intelligence is built.”
+            </motion.blockquote>
+
+            {/* Social Links & Action Buttons */}
+            <motion.div variants={itemVariants} className="mt-10 flex flex-col items-center gap-6">
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                {socialLinks.map((link) => {
+                  const CustomIcon = link.customSvg ? customIcons[link.id] : null;
+                  return (
+                    <a
+                      key={link.id}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative p-3 rounded-xl border border-border bg-bg-card/50 backdrop-blur-sm text-text-secondary hover:text-lavender hover:border-lavender/30 hover:bg-lavender/5 transition-all duration-300"
+                      id={`social-${link.id}`}
+                      aria-label={link.label}
+                    >
+                      {CustomIcon ? (
+                        <CustomIcon size={28} />
+                      ) : link.Icon ? (
+                        <link.Icon size={28} />
+                      ) : null}
+                      <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded text-[10px] font-mono text-lavender bg-bg-secondary/90 border border-border opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                        {link.label}
+                      </span>
+                    </a>
+                  );
+                })}
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('contact');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="flex items-center gap-2 px-6 py-3 rounded-xl border border-border bg-bg-card text-text-primary hover:text-lavender hover:border-lavender/50 hover:bg-lavender/10 transition-all font-medium text-sm sm:text-base cursor-pointer"
+                >
+                  <Send size={18} />
+                  Contact Me
+                </button>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
-
-
+        </div>
       </motion.div>
-
-
     </section>
   );
 };

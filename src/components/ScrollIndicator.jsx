@@ -36,24 +36,58 @@ const ScrollIndicator = () => {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.3 }}
-          onClick={handleScrollClick}
-          className="fixed bottom-10 right-10 z-40 flex flex-col items-center gap-2 text-text-muted hover:text-lavender transition-colors cursor-pointer bg-bg-card/50 p-3 rounded-full border border-border backdrop-blur-sm"
-          id="global-scroll-indicator"
-          aria-label="Scroll down"
-        >
-          <span className="font-mono text-xs font-semibold tracking-widest uppercase">Scroll</span>
+        <>
           <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-[114px] right-10 z-40"
           >
-            <ArrowDown size={20} />
+            <div className="glass-card px-3 py-2 text-left min-w-[170px] border border-border/80 transform rotate-2 hover:-rotate-1 transition-transform duration-300 opacity-90 shadow-[0_0_0_1px_rgba(196,167,231,0.2)]">
+              <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.2em] text-text-muted">
+                <span className="text-lavender">IST</span>
+                <span className="terminal-cursor" aria-hidden="true" />
+              </div>
+              <div className="mt-2 text-sm font-mono text-text-primary">
+                {new Intl.DateTimeFormat('en-IN', {
+                  timeZone: 'Asia/Kolkata',
+                  hour: '2-digit',
+                  minute: '2-digit',
+                  second: '2-digit',
+                  hour12: false,
+                }).format(new Date())}
+              </div>
+              <div className="mt-1 text-[9px] uppercase tracking-[0.2em] text-text-muted">
+                {new Intl.DateTimeFormat('en-IN', {
+                  timeZone: 'Asia/Kolkata',
+                  day: '2-digit',
+                  month: 'short',
+                  year: 'numeric',
+                }).format(new Date())}
+              </div>
+            </div>
           </motion.div>
-        </motion.button>
+
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3 }}
+            onClick={handleScrollClick}
+            className="fixed bottom-10 right-10 z-40 flex flex-col items-center gap-2 text-text-muted hover:text-lavender transition-colors cursor-pointer bg-bg-card/50 p-3 rounded-full border border-border backdrop-blur-sm"
+            id="global-scroll-indicator"
+            aria-label="Scroll down"
+          >
+            <span className="font-mono text-xs font-semibold tracking-widest uppercase">Scroll</span>
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <ArrowDown size={20} />
+            </motion.div>
+          </motion.button>
+        </>
       )}
     </AnimatePresence>
   );
