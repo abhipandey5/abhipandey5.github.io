@@ -12,8 +12,8 @@ const professorMoments = [
   {
     src: '/Pictures/CROPED-SSP02177.jpg',
     alt: 'Photo with Prof. Ashok Kumar Das, my respected mentor and supervisor',
-    title: 'With My Mentor Prof. Ashok Kumar Das',
-    detail: 'A cherished moment with my respected supervisor and mentor, whose guidance, wisdom, and encouragement continue to shape my research journey.',
+    title: 'With My Supervisor Prof. Ashok Kumar Das',
+    detail: 'A cherished moment with my supervisor and mentor, whose guidance and encouragement continue to shape my research journey.',
     badge: 'Mentor',
   },
   {
