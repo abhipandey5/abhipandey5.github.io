@@ -119,7 +119,7 @@ const Hero = () => {
             >
               Ph.D. Scholar at IIIT Hyderabad specializing in{' '}
               <span className="text-lavender font-medium">Secure Authentication, AI/ML Security</span>{' '}
-              and Medical Cyber-Physical Systems. My Supervisor is Prof. Ashok Kumar Das
+              and Medical Cyber-Physical Systems.
             </motion.p>
 
             <motion.blockquote
