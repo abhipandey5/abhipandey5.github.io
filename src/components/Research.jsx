@@ -50,6 +50,19 @@ const Research = () => {
           title="Research and Publications"
           subtitle="Advancing the frontiers of Cyber Security and Information Security."
         />
+
+        <p className="mt-4 text-center text-sm text-text-secondary font-medium">
+          For full paper list please visit{' '}
+          <a
+            href="https://scholar.google.com/citations?user=DeFvW2kAAAAJ&hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-lavender underline underline-offset-4 decoration-lavender/60 hover:text-pink transition-colors"
+          >
+            here
+          </a>
+          .
+        </p>
         
         <div className="grid gap-6">
           {publications.map((pub, i) => (
