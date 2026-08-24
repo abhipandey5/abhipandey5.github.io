@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -21,55 +22,55 @@
   --color-border: var(--border);
   --color-border-hover: var(--border-hover);
 
-  --font-sans: 'Space Mono', monospace;
-  --font-mono: 'Fira Code', monospace;
+  --font-sans: 'Manrope', sans-serif;
+  --font-mono: 'Azeret Mono', monospace;
 }
 
 @layer base {
   :root {
-    /* Light Theme: official teal-blue-white palette */
-    --bg-primary: #f3fbff;
-    --bg-secondary: #dff6fb;
+    /* Light Theme: navy academic palette */
+    --bg-primary: #f8fbff;
+    --bg-secondary: #edf5ff;
     --bg-card: #ffffff;
-    --bg-card-hover: #edf8ff;
+    --bg-card-hover: #f2f8ff;
 
-    --lavender: #0f766e;
-    --lavender-dim: #0b5d5a;
-    --lavender-bright: #2dd4bf;
+    --lavender: #1d4ed8;
+    --lavender-dim: #1e3a8a;
+    --lavender-bright: #60a5fa;
     --pink: #2563eb;
     --pink-dim: #1d4ed8;
-    --mauve: #0ea5e9;
+    --mauve: #0ea5a4;
     --rose: #38bdf8;
-    --peach: #14b8a6;
+    --peach: #0f766e;
 
-    --text-primary: #0f172a;
-    --text-secondary: #1e3a5f;
-    --text-muted: #0f766e;
-    --border: #8ad6e8;
-    --border-hover: #0ea5e9;
+    --text-primary: #0b1f3a;
+    --text-secondary: #334155;
+    --text-muted: #1d4ed8;
+    --border: #cfe3ff;
+    --border-hover: #60a5fa;
   }
 
   /* Dark Theme manually toggled */
   .dark {
-    --bg-primary: #061b2a;
-    --bg-secondary: #0d2437;
-    --bg-card: rgba(10, 30, 42, 0.8);
-    --bg-card-hover: rgba(12, 46, 66, 0.95);
+    --bg-primary: #081827;
+    --bg-secondary: #0d1d31;
+    --bg-card: rgba(11, 31, 58, 0.82);
+    --bg-card-hover: rgba(17, 46, 82, 0.95);
 
-    --lavender: #7dd3fc;
-    --lavender-dim: #38bdf8;
-    --lavender-bright: #a5f3fc;
+    --lavender: #93c5fd;
+    --lavender-dim: #60a5fa;
+    --lavender-bright: #dbeafe;
     --pink: #60a5fa;
     --pink-dim: #3b82f6;
     --mauve: #5eead4;
     --rose: #93c5fd;
-    --peach: #67e8f9;
+    --peach: #2dd4bf;
 
-    --text-primary: #ecfeff;
+    --text-primary: #edf6ff;
     --text-secondary: #dbeafe;
-    --text-muted: #a5f3fc;
-    --border: #0f766e;
-    --border-hover: #38bdf8;
+    --text-muted: #bfdbfe;
+    --border: #1d4ed8;
+    --border-hover: #60a5fa;
   }
 }
 
@@ -101,7 +102,7 @@ body {
   height: 1.1rem;
   background: var(--lavender);
   border-radius: 0.15rem;
-  box-shadow: 0 0 12px rgba(14, 165, 233, 0.7);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.7);
   animation: blink 1s step-end infinite;
 }
 
@@ -127,7 +128,7 @@ body {
 
 /* ─── Gradient Text Utility ─── */
 .gradient-text {
-  background: linear-gradient(135deg, var(--lavender) 0%, var(--pink) 50%, var(--rose) 100%);
+  background: linear-gradient(135deg, var(--lavender) 0%, var(--pink) 50%, var(--mauve) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
