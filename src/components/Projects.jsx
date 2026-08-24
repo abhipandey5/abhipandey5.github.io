@@ -24,7 +24,7 @@ const Projects = () => {
           <div className="mt-12 flex items-center justify-center gap-4">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
             <span className="font-mono text-[14px] sm:text-[15px] font-bold text-text-secondary px-5 py-2 rounded-full border border-border bg-bg-card/50 text-center">
-              Star the repos if you like them, and feel free to contribute or provide feedback!
+              Explore my projects to learn more about my research interests, technical work, and contributions to security & privacy. Feedback, collaboration, and research discussions are always welcome.
             </span>
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
           </div>
