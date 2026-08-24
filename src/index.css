@@ -27,49 +27,49 @@
 
 @layer base {
   :root {
-    /* Light Theme (Lighter, warmer, more pink) */
-    --bg-primary: #ffd1dc; /* Soft pastel pink */
-    --bg-secondary: #ffb6c1; /* Classic light pink */
-    --bg-card: #ffe6ee; /* Distinct lighter shade of pink for widgets */
-    --bg-card-hover: #ffdced;
-    
-    --lavender: #9333ea;
-    --lavender-dim: #7e22ce;
-    --lavender-bright: #a855f7;
-    --pink: #be123c;
-    --pink-dim: #9f1239;
-    --mauve: #c026d3;
-    --rose: #e11d48;
-    --peach: #ea580c;
-    
-    --text-primary: #4c1d95; /* Deep purple text for readability */
-    --text-secondary: #6b21a8;
-    --text-muted: #9333ea;
-    --border: #c084fc;
-    --border-hover: #9333ea;
+    /* Light Theme: official teal-blue-white palette */
+    --bg-primary: #f3fbff;
+    --bg-secondary: #dff6fb;
+    --bg-card: #ffffff;
+    --bg-card-hover: #edf8ff;
+
+    --lavender: #0f766e;
+    --lavender-dim: #0b5d5a;
+    --lavender-bright: #2dd4bf;
+    --pink: #2563eb;
+    --pink-dim: #1d4ed8;
+    --mauve: #0ea5e9;
+    --rose: #38bdf8;
+    --peach: #14b8a6;
+
+    --text-primary: #0f172a;
+    --text-secondary: #1e3a5f;
+    --text-muted: #0f766e;
+    --border: #8ad6e8;
+    --border-hover: #0ea5e9;
   }
 
   /* Dark Theme manually toggled */
   .dark {
-    --bg-primary: #1e1b4b; /* Deep dark purple */
-    --bg-secondary: #2e1065;
-    --bg-card: rgba(46, 16, 101, 0.75);
-    --bg-card-hover: rgba(76, 29, 149, 0.95);
+    --bg-primary: #061b2a;
+    --bg-secondary: #0d2437;
+    --bg-card: rgba(10, 30, 42, 0.8);
+    --bg-card-hover: rgba(12, 46, 66, 0.95);
 
-    --lavender: #c4a7e7;
-    --lavender-dim: #9d7cbf;
-    --lavender-bright: #d9c4f0;
-    --pink: #ff1493;
-    --pink-dim: #d4a0c4;
-    --mauve: #cba6f7;
-    --rose: #f2cddc;
-    --peach: #fab387;
-    
-    --text-primary: #fdf4ff;
-    --text-secondary: #f3e8ff;
-    --text-muted: #d8b4fe;
-    --border: #7e22ce;
-    --border-hover: #a855f7;
+    --lavender: #7dd3fc;
+    --lavender-dim: #38bdf8;
+    --lavender-bright: #a5f3fc;
+    --pink: #60a5fa;
+    --pink-dim: #3b82f6;
+    --mauve: #5eead4;
+    --rose: #93c5fd;
+    --peach: #67e8f9;
+
+    --text-primary: #ecfeff;
+    --text-secondary: #dbeafe;
+    --text-muted: #a5f3fc;
+    --border: #0f766e;
+    --border-hover: #38bdf8;
   }
 }
 
@@ -101,7 +101,7 @@ body {
   height: 1.1rem;
   background: var(--lavender);
   border-radius: 0.15rem;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.7);
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.7);
   animation: blink 1s step-end infinite;
 }
 
@@ -127,11 +127,11 @@ body {
 
 /* ─── Gradient Text Utility ─── */
 .gradient-text {
-  background: linear-gradient(135deg, var(--lavender) 0%, var(--pink) 50%, var(--mauve) 100%);
+  background: linear-gradient(135deg, var(--lavender) 0%, var(--pink) 50%, var(--rose) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 2px 2px 0px rgba(0,0,0,0.1); /* Subtle pixel shadow */
+  text-shadow: 2px 2px 0px rgba(15, 23, 42, 0.08);
 }
 
 .gradient-text-subtle {
