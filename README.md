@@ -44,7 +44,7 @@ npm run build
 
 ## Notes
 
-This repository is maintained by Abhishek Kumar Pandey and reflects my current personal portfolio identity. Any older contributor attribution has been removed from the project documentation.
+This repository is maintained by Abhishek Kumar Pandey and reflects my current personal portfolio identity.
 
 ## Contact
 
