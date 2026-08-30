@@ -4,14 +4,13 @@ import { ArrowDown } from 'lucide-react';
 
 const ScrollIndicator = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const [now, setNow] = useState(new Date());
 
   useEffect(() => {
     const handleScroll = () => {
-      // Calculate how far we are from the bottom
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      
-      // Hide if we're within 200px of the bottom
+
       if (documentHeight - scrollPosition < 200) {
         setIsVisible(false);
       } else {
@@ -19,11 +18,17 @@ const ScrollIndicator = () => {
       }
     };
 
+    const timer = setInterval(() => {
+      setNow(new Date());
+    }, 1000);
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    // Check initial position
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleScrollClick = () => {
@@ -32,6 +37,21 @@ const ScrollIndicator = () => {
       behavior: 'smooth'
     });
   };
+
+  const formattedTime = new Intl.DateTimeFormat('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  }).format(now);
+
+  const formattedDate = new Intl.DateTimeFormat('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  }).format(now);
 
   return (
     <AnimatePresence>
@@ -50,21 +70,10 @@ const ScrollIndicator = () => {
                 <span className="terminal-cursor" aria-hidden="true" />
               </div>
               <div className="mt-2 text-sm font-mono text-text-primary">
-                {new Intl.DateTimeFormat('en-IN', {
-                  timeZone: 'Asia/Kolkata',
-                  hour: '2-digit',
-                  minute: '2-digit',
-                  second: '2-digit',
-                  hour12: false,
-                }).format(new Date())}
+                {formattedTime}
               </div>
               <div className="mt-1 text-[9px] uppercase tracking-[0.2em] text-text-muted">
-                {new Intl.DateTimeFormat('en-IN', {
-                  timeZone: 'Asia/Kolkata',
-                  day: '2-digit',
-                  month: 'short',
-                  year: 'numeric',
-                }).format(new Date())}
+                {formattedDate}
               </div>
             </div>
           </motion.div>
